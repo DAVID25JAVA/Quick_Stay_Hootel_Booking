@@ -1,10 +1,13 @@
 import React from "react";
 import { assets, roomsDummyData } from "../../public/assets";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 function FeaturedDestination() {
+  const router = useRouter();
+
   return (
-    <div className="pb-20 px-4 md:px-0 ">
+    <div className="md:pb-20 ">
       {/* Title Section */}
       <p className="font-playfair font-semibold md:font-normal text-black text-2xl md:text-4xl text-center pt-10 md:pt-16">
         Featured Destination
@@ -82,8 +85,11 @@ function FeaturedDestination() {
       </div>
 
       {/* Button */}
-      <div className="my-5   md:my-10 flex justify-center items-center">
-        <button className="duration-500 hover:bg-gray-300   border cursor-pointer border-gray-400  rounded h-10 w-40 text-black ">
+      <div className="my-10   md:my-10 flex justify-center items-center">
+        <button
+          onClick={() => router.push("/Rooms")}
+          className="duration-500 hover:bg-gray-300   border cursor-pointer border-gray-400  rounded h-10 w-40 text-black "
+        >
           View All Destinations
         </button>
       </div>

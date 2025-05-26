@@ -2,6 +2,7 @@ import ExclusiveOffer from "@/components/ExclusiveOffer";
 import FeaturedDestination from "@/components/FeaturedDestination";
 import GuestRating from "@/components/GuestRating";
 import MainHeader from "@/components/MainHeader";
+import Newsletter from "@/components/Newsletter";
 
 export default function Home() {
   return (
@@ -11,7 +12,8 @@ export default function Home() {
         <div className="2xl:container 2xl:mx-auto">
           <FeaturedDestination />
           <ExclusiveOffer />
-          <GuestRating/>
+          <GuestRating />
+          <Newsletter/>
         </div>
        
        

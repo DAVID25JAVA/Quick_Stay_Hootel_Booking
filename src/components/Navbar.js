@@ -2,16 +2,10 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-
-
 function Navbar({}) {
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isFormOpen, setIsFormOpen] = useState(false);
-
-  console.log("form----->", isFormOpen);
-  
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -27,7 +21,6 @@ function Navbar({}) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
 
   return (
     <nav

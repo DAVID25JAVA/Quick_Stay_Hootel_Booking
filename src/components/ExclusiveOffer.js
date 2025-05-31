@@ -4,7 +4,9 @@ import { assets, exclusiveOffers } from "../../public/assets";
 
 function ExclusiveOffer() {
   return (
-    <div className="my-10">
+    <div className="my-10 md:max-w-8xl xl:px-20 px-4 w-full mx-auto">
+      <div className="2xl:container 2xl:mx-auto">
+
       <p className="text-black text-2xl md:text-4xl">Exclusive Offers</p>
       <div className="flex flex-col md:flex-row md:justify-between">
         <p className="text-gray-500 text-lg md:max-w-2xl my-3 md:my-1">
@@ -47,6 +49,7 @@ function ExclusiveOffer() {
             </button>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

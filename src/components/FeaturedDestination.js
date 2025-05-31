@@ -7,8 +7,9 @@ function FeaturedDestination() {
   const router = useRouter();
 
   return (
-    <div className="md:pb-20 ">
-      {/* Title Section */}
+    <div className="md:pb-20 bg-green-50 md:max-w-8xl xl:px-20 px- w-full mx-auto">
+      <div className="2xl:container 2xl:mx-auto px-4">
+
       <p className="font-playfair font-semibold md:font-normal text-black text-2xl md:text-4xl text-center pt-10 md:pt-16">
         Featured Destination
       </p>
@@ -22,7 +23,7 @@ function FeaturedDestination() {
         {roomsDummyData?.slice(0, 4)?.map((room, index) => (
           <div
             key={room?._id}
-            className="relative w-[310px] bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
+            className="relative md:w-[310px] bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
           >
             {/* Best Seller Badge */}
             {index % 2 === 0 && (
@@ -93,6 +94,8 @@ function FeaturedDestination() {
           View All Destinations
         </button>
       </div>
+      </div>
+      {/* Title Section */}
     </div>
   );
 }

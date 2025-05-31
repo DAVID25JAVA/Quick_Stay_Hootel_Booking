@@ -3,10 +3,10 @@ import { testimonials } from "../../public/assets";
 import StarRating from "./StarRating";
 
 function GuestRating() {
-  console.log("rating----->", testimonials);
+ 
 
   return (
-    <div>
+    <div className="bg-green-50 md:py-10 py-5">
       <p className="text-black text-2xl md:text-4xl text-center">
         What Our Guests Say
       </p>

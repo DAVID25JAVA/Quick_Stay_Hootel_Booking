@@ -1,21 +1,19 @@
 import React from "react";
-import { assets } from "../../public/assets";
 
 function Footer() {
-//   console.log("logo------>", assets?.logo);
-
   return (
     <>
+      
       <footer class="px-6 md:px-16 lg:px-24 xl:px-32 pt-8 w-full text-gray-500 bg-green-50">
         <div class="flex flex-col md:flex-row justify-between w-full gap-10 border-b border-gray-500/30 pb-6">
           <div class="md:max-w-96">
-            <img class="h-20 w-full" src={assets?.logo} alt="dummyLogoDark" />
+            <img class="h-14 w-60 invert" src="/logo.png" alt="dummyLogoDark" />
             <p class="mt-6 text-[16px]">
               Discover the world's most extraordinary places to stay, from
               boutique hotels to luxury villas and private islands.
             </p>
           </div>
-          <div class="flex-1 flex items-start md:justify-end gap-20">
+          <div class="flex-1 flex-col md:flex-row flex items-start md:justify-end gap-5 md:gap-20">
             <div>
               <h2 class="font-semibold text-[20px] mb-5 text-gray-800">
                 Company

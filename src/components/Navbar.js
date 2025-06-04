@@ -1,44 +1,49 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
-function Navbar({}) {
+function Navbar() {
   const router = useRouter();
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Hotels", path: "/hotels" },
+    { name: "Hotels", path: "/Rooms" },
     { name: "Experience", path: "/experience" },
     { name: "About", path: "/about" },
   ];
+
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener("scroll", handleScroll);
+
+    if (isHome) {
+      window.addEventListener("scroll", handleScroll);
+    }
+
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHome]);
+
+  const navbarClasses = isHome && !isScrolled
+    ? "py-4 md:py-6"
+    : "bg-white/80 shadow-md text-gray-700 backdrop-blur-lg py-3 md:py-4";
+
+  const textColorClass = isHome && !isScrolled ? "text-white" : "text-gray-700";
+  const underlineColorClass = isHome && !isScrolled ? "bg-white" : "bg-gray-700";
+  const logoClass = isHome && !isScrolled ? "" : "invert opacity-80";
+  const iconClass = isHome && !isScrolled ? "" : "invert";
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-white/80 shadow-md text-gray-700 backdrop-blur-lg py-3 md:py-4"
-          : "py-4 md:py-6"
-      }`}
-    >
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${navbarClasses}`}>
       <div className="max-w-8xl mx-auto px-5 xl:px-20">
         <div className="flex justify-between items-center 2xl:container 2xl:mx-auto">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <img
-              src="/logo.png"
-              alt="logo"
-              className={`h-8 ${isScrolled && "invert opacity-80"}`}
-            />
+            <img src="/logo.png" alt="logo" className={`h-8 ${logoClass}`} />
           </a>
 
           {/* Desktop Nav */}
@@ -47,15 +52,11 @@ function Navbar({}) {
               <a
                 key={i}
                 href={link.path}
-                className={`group font-semibold  flex flex-col gap-0.5 ${
-                  isScrolled ? "text-gray-700" : "text-white"
-                }`}
+                className={`group font-semibold flex flex-col gap-0.5 ${textColorClass}`}
               >
                 {link.name}
                 <div
-                  className={`${
-                    isScrolled ? "bg-gray-700" : "bg-white"
-                  } h-0.5 w-0 group-hover:w-full transition-all duration-300`}
+                  className={`h-0.5 w-0 group-hover:w-full transition-all duration-300 ${underlineColorClass}`}
                 />
               </a>
             ))}
@@ -64,7 +65,7 @@ function Navbar({}) {
           {/* Desktop Right */}
           <div className="hidden md:flex items-center gap-4">
             <svg
-              className={`h-6 w-6 ${isScrolled ? "invert" : ""}`}
+              className={`h-6 w-6 ${iconClass}`}
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -75,7 +76,7 @@ function Navbar({}) {
             </svg>
             <button
               onClick={() => router.push("/auth/Login")}
-              className="bg-black font-playfair cursor-pointer text-white px-8 py-2.5 rounded-full ml-4 transition-all duration-500"
+              className="bg-black font-playfair text-white px-8 py-2.5 rounded-full ml-4 transition-all duration-500"
             >
               Login
             </button>
@@ -85,7 +86,7 @@ function Navbar({}) {
           <div className="flex items-center gap-3 md:hidden">
             <svg
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`h-6 w-6 cursor-pointer ${isScrolled ? "invert" : ""}`}
+              className={`h-6 w-6 text-white cursor-pointer ${iconClass}`}
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -103,10 +104,7 @@ function Navbar({}) {
               isMenuOpen ? "translate-x-0" : "-translate-x-full"
             }`}
           >
-            <button
-              className="absolute top-4 right-4"
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <button className="absolute top-4 right-4" onClick={() => setIsMenuOpen(false)}>
               <svg
                 className="h-6 w-6"
                 fill="none"
@@ -125,11 +123,10 @@ function Navbar({}) {
               </a>
             ))}
 
-            {/* <button className="border px-4 py-1 text-sm font-light rounded-full cursor-pointer transition-all">
-              New Launch
-            </button> */}
-
-            <button className="bg-black font-semibold font-playfair cursor-pointer text-white px-8 py-2.5 rounded-full transition-all duration-500">
+            <button
+              onClick={() => router.push("/auth/Login")}
+              className="bg-black font-semibold font-playfair text-white px-8 py-2.5 rounded-full transition-all duration-500"
+            >
               Login
             </button>
           </div>

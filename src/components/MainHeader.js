@@ -10,8 +10,8 @@ function MainHeader() {
       <div className='absolute inset-0 bg-[url("/heroImage.png")] bg-cover bg-no-repeat bg-center' />
 
       {/* Content container - properly layered and centered */}
-      <div className="relative z-10  h-screen pt-48 md:pt-16 flex flex-col justify-center">
-        <div className="md:max-w-8xl xl:px-20 px-5 mx-auto w-full">
+      <div className="relative z-10  h-screen pt-28 md:pt-16 flex flex-col justify-center">
+        <div className="md:max-w-8xl xl:px-20 px-4 mx-auto w-full">
           <div className="2xl:container 2xl:mx-auto space-y-4">
             <p className="text-white  md:mt-0 w-64 py-1 rounded-full opacity-75 text-center bg-primary">
               The Ultimate Hotel Experience

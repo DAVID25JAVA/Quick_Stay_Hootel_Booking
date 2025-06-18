@@ -7,7 +7,7 @@ function StarRating({ rating = 4 }) {
       {Array(5)
         ?.fill("")
         ?.map((_, index) => (
-          <img
+          <img key={index}
             src={
               rating > index
                 ? assets?.starIconFilled?.src

@@ -18,6 +18,8 @@ function RoomDetails() {
     roomData && setRoomImage(roomData?.images[0]);
   }, [roomsId]);
 
+  console.log("Rooms data----->", roomsData);
+
   return (
     roomsData && (
       <div className="  md:my-36 my-20 md:max-w-8xl w-full mx-auto xl:px-20 px-4">
@@ -136,7 +138,7 @@ function RoomDetails() {
         </div>
 
         {/* Room Specification  */}
-        <div className="my-10">
+        <div className="mt-10 mb-5">
           {roomCommonData?.map((item, index) => (
             <div key={index} className="">
               <div className="flex items-center gap-3 py-2">
@@ -150,7 +152,42 @@ function RoomDetails() {
           ))}
         </div>
 
-         <hr className="w-1/2 "/>
+        <hr className="md:max-w-5xl w-full" />
+
+        <div className="my-10 text-gray-600 text-lg font-playfair w-full md:max-w-5xl">
+          <p>
+            Escape to comfort and luxury with our top-rated hotel stays. Book
+            your perfect getaway in just a few clicks—fast, easy, and secure.
+            Choose from a wide range of hotels to fit every budget and style.
+            Enjoy exclusive deals, flexible cancellations, and 24/7 customer
+            support. Start your journey with us and experience unforgettable
+            hospitality.
+          </p>
+        </div>
+        <hr className="md:max-w-5xl w-full" />
+
+        {/* Hosted By */}
+        <div className="my-5 md:my-10 flex gap-4">
+          <div>
+            <img
+              src={roomsData?.hotel?.owner?.image}
+              className="w-14 h-14 rounded-full"
+            />
+          </div>
+          <div>
+            <p className="text-gray-600 font-semibold text-lg">
+              Hosted by : {roomsData?.hotel?.name}
+            </p>
+            <div>
+              <div className="flex text-gray-600 items-center gap-2">
+                <StarRating />
+                <p>200+ reviews</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button className="bg-blue-600 text-white my-2 md:w-40 w-32 h-12 rounded-lg">Contact Now</button>
       </div>
     )
   );

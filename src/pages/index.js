@@ -11,7 +11,7 @@ export default function Home() {
       <FeaturedDestination />
       <ExclusiveOffer />
       <GuestRating />
-      <Newsletter className="" />
+      <Newsletter />
     </div>
   );
 }

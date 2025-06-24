@@ -7,6 +7,9 @@ function Rooms() {
   const router = useRouter();
   const [showFilters, setShowFilters] = useState(false);
 
+  console.log("room data-------->", roomsDummyData);
+  
+
   return (
     <div className="md:max-w-8xl w-full mx-auto xl:px-20 px-4 mt-20  md:my-28">
       <div className="2xl:container 2xl:mx-auto">
@@ -35,7 +38,7 @@ function Rooms() {
                       key={index}
                       src={img?.src}
                       alt="Room image"
-                      className="md:w-96 rounded"
+                      className="md:w-[500px] w-full  rounded"
                     />
                   ))}
                 </div>
@@ -53,13 +56,13 @@ function Rooms() {
                   <p className="text-gray-500 text-lg">
                     {item?.hotel?.address}
                   </p>
-                  <div className="flex max-w-lg flex-wrap gap-4">
+                  <div className="flex max-w-xl flex-wrap gap-4">
                     {item?.amenities?.slice(0, 3)?.map((amenity, index) => (
-                      <div key={index} className="flex items-center gap-2">
+                      <div key={index} className="flex items-center justify-center gap-2 w-[144px] h-9 rounded-full bg-gray-100">
                         <img
-                          src={facilityIcons[amenity]}
+                          src={facilityIcons[amenity]?.src}
                           alt={amenity}
-                          className="w-5 h-5"
+                          className="w-4 h-4"
                         />
                         <p className="text-base text-gray-500">{amenity}</p>
                       </div>
@@ -90,7 +93,7 @@ function Rooms() {
 
             {/* Filter Sidebar (responsive) */}
             <div
-              className={`border border-gray-400 md:h-[590px] p-4 ${
+              className={`border border-gray-400 md:h-[610px] p-4 ${
                 showFilters ? "block" : "hidden"
               } md:block`}
             >

@@ -58,7 +58,7 @@ function Navbar() {
           <div className="hidden md:flex items-center gap-4 lg:gap-8">
             {navLinks.map((link, i) => (
               <div onClick={() => router.push(link?.path)}>
-                <p
+                <div
                   key={i}
                   className={`group font-semibold flex cursor-pointer flex-col gap-0.5 ${textColorClass}`}
                 >
@@ -66,8 +66,8 @@ function Navbar() {
                   <div
                     className={`h-0.5 w-0 group-hover:w-full transition-all duration-300 ${underlineColorClass}`}
                   />
-                </p>
               </div>
+                </div>
             ))}
           </div>
 

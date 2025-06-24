@@ -10,7 +10,7 @@ function Navbar() {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Hotels", path: "/Rooms" },
-    { name: "Experience", path: "/experience" },
+    // { name: "Experience", path: "/experience" },
     { name: "About", path: "/about" },
     { name: "Dashboard", path: "/dashboard" },
   ];

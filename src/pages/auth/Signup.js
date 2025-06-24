@@ -36,7 +36,7 @@ function Signup() {
 
         <button
           type="submit"
-          class="w-full mb-3 bg-indigo-500 hover:bg-indigo-600/90 active:scale-95 transition py-2.5 rounded-full text-white"
+          class="w-full mb-3  bg-gray-800 hover:bg-gray-700 cursor-pointer active:scale-95 transition py-2.5 rounded-full text-white"
         >
         Signup 
         </button>
